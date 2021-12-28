@@ -1,0 +1,37 @@
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .movie-container {
+    display: inline-block;
+  }
+  
+  .movie-img {
+    height: 300px;
+    width: 250px;
+    margin-left: 50px;
+  }
+  
+  .movie-name {
+    text-align: center;
+    color: white;
+  }
+
+  #u-input{
+    position: relative;
+    top: 25%;
+    left: 17%;
+    align-content: center;
+    margin-bottom: 20px;
+}
+
+  input {
+    display: inline-block;
+    width: 65vw;
+    padding: 1vh;
+    border-radius: 5px;
+    color: #b7c5d3;
+    background-color: black;
+    vertical-align: bottom; /*aligns bottom of two divs with the same parent*/
+  }

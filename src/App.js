@@ -29,15 +29,25 @@ class App extends Component {
     }
   }
 
+  makeRented = (movie) => {
+    console.log(movie.isRented);
+    // this.props
+    movie.isRented = true
+    console.log(movie.isRented);
+
+  }
+
+
   render() {
     const state = this.state
     return (
       <Router>
         <div className="App">
+          <h1 id="logo">REFLIX</h1>
           <div id="home-background"></div>
           <div id="main-links">
-            <Link to="/">Home</Link>
-            <Link to="/Catalog">Catalog</Link>
+            <Link className="link" to="/">Home</Link>
+            <Link className='link' to="/Catalog">Catalog</Link>
           </div>
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
@@ -45,7 +55,9 @@ class App extends Component {
             {/* <Route path="/about" exact render={() => <About items={Object.keys(state)} />} /> */}
 
             <Route path="/landing" exact element={<Landing  state={state}/>} />
-            <Route path="/catalog" exact element={<Catalog />} />
+            <Route path="/catalog" exact element={<Catalog state={state} makeRented={this.makeRented}/>} />
+            <Route path="/catalog/:movieID" exact element={<Catalog state={state}/>} />
+
           </Routes>
         </div>
       </Router>

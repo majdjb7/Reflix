@@ -1,0 +1,24 @@
+.users-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .user-container {
+    display: inline-block;
+  }
+  
+  .user-img {
+    height: 250px;
+    width: 250px;
+    margin-left: 50px;
+  }
+  
+  .user-name {
+    text-align: center;
+    color: white;
+  }
+  
+  #watch-title {
+    text-align: center;
+    color: white;
+  }
