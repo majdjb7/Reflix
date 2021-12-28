@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
+import Home from './components/Home';
+import Landing from './components/Landing';
+import Catalog from './components/Catalog';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
+
+  render() {
+    const state = this.state
+    return (
+      <Router>
+        <div className="App">
+          <div id="home-background"></div>
+          <div id="main-links">
+            <Link to="/">Home</Link>
+            <Link to="/Catalog">Catalog</Link>
+          </div>
+          <Routes>
+            <Route path="/" exact element={<Home />}></Route>
+            {/* <Route path="/" exact component={Home}/> */}
+            {/* <Route path="/about" exact render={() => <About items={Object.keys(state)} />} /> */}
+
+            <Route path="/landing" exact element={<Landing />} />
+            <Route path="/catalog" exact element={<Catalog />} />
+          </Routes>
+        </div>
+      </Router>
+      );
+    }
 }
 
 export default App;
