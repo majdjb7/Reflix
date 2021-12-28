@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
 import Home from './components/Home';
 import Landing from './components/Landing';
 import Catalog from './components/Catalog';
+import Movie from './components/Movie';
 
 
 class App extends Component {
@@ -53,8 +54,8 @@ class App extends Component {
 
             <Route path="/landing" exact element={<Landing  state={state}/>} />
             <Route path="/catalog" exact element={<Catalog state={state} makeRented={this.makeRented}/>} />
-            <Route path="/catalog/:movieID" exact element={<Catalog state={state}/>} />
-
+            {/* <Route path="/movies/:movieID" exact render={({ match }) => <Movie match={match} state={state}/>}/> */}
+            <Route path="/movies/:movieID" exact element={<Movie state={state}/>}/>
           </Routes>
         </div>
       </Router>

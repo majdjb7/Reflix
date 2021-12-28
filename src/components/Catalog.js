@@ -14,8 +14,6 @@ class Catalog extends Component {
         const movies = this.props.state.movies
         let rentedMovies = movies.filter(m => m.isRented === true)
         let availableMovies = movies.filter(m => m.isRented === false)
-        console.log("RENTED: ",rentedMovies)
-        console.log("AVAILABLE: ",availableMovies)
         return (
             <div>
                 {rentedMovies.length>0
@@ -30,7 +28,6 @@ class Catalog extends Component {
                                                 <Link to={`/movies/${m.id}`}>
                                                     <img className='movie-img' src={m.img} alt="" />
                                                 </Link>
-                                                {/* <span>{}</span> */}
                                             </div>
                                 )
                             })

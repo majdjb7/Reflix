@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 class Movie extends Component {
     render() {
-        console.log(this.props.movie);
+        // const { fentities, name } = this.props.match.params
+        console.log(this.props.match);
         return (
             <div>
                 <button>Add</button>
