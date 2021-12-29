@@ -21,3 +21,10 @@
     background-color: black;
     vertical-align: bottom; /*aligns bottom of two divs with the same parent*/
   }
+
+
+  #budget {
+    margin-top: 15px;
+    margin-right: 5px;
+    text-align: right;
+  }

@@ -11,7 +11,7 @@ class Landing extends Component {
                 <div className='users-container'>
                     {usersArray.map(u => {
                         return (
-                            <Link to={`/catalog`}>
+                            <Link to={`/${u.name}/catalog`}>
                                 <div className="user-container">
                                     <img className='user-img' src={u.img} alt="" />
                                     <h1 className='user-name'>{u.name}</h1>

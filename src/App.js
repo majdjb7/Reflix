@@ -13,10 +13,10 @@ class App extends Component {
     this.state = {
       users: 
       [
-        {id: 0, name: "Majd1", img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"},
-        {id: 1, name: "Majd2", img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"},
-        {id: 2, name: "Majd3", img: "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg"},
-        {id: 3, name: "Majd4", img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png"}
+        {id: 0, name: "Majd1", budget: 14, img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"},
+        {id: 1, name: "Majd2", budget: 15, img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"},
+        {id: 2, name: "Majd3", budget: 11, img: "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg"},
+        {id: 3, name: "Majd4", budget: 6, img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png"}
 
       ],
       movies: 
@@ -30,12 +30,32 @@ class App extends Component {
     }
   }
 
-  makeRented = (movie) => {
+  makeRented = (movie, userID) => {
+    let noMoney = false
     let rentStatus
+    let newUsers = [...this.state.users]
+    let budget = newUsers[userID].budget
     let newMovies = [...this.state.movies]
-    movie.isRented === true ? rentStatus = false : rentStatus = true
-    newMovies[movie.id].isRented = rentStatus
-    this.setState({ movies: newMovies })
+    // movie.isRented === true ? rentStatus = false : (rentStatus = true)
+    // movie.isRented === true ? (budget+=3) : ((budget-=3))
+
+    if(movie.isRented === true) {
+      rentStatus = false
+      budget+=3
+    }
+    else if(movie.isRented === false && budget >= 3) {
+      rentStatus = true
+      budget-=3
+    }
+    else {
+      noMoney = true
+      alert(`Sorry ${newUsers[userID].name}. We have dedicted insufficient funds in your account`)
+    }
+    if(noMoney === false) {
+      newMovies[movie.id].isRented = rentStatus
+      newUsers[userID].budget = budget
+      this.setState({ movies: newMovies, users: newUsers })
+    }
   }
 
   render() {
@@ -51,8 +71,8 @@ class App extends Component {
           </div>
 
           <Route path="/" exact render={() => <Home />}></Route>
-          <Route path="/" render={() => <Landing  state={state}/>} />
-          <Route path="/catalog" exact render={() => <Catalog state={state} makeRented={this.makeRented}/>} />
+          <Route path="/" exact render={() => <Landing  state={state}/>} />
+          <Route path="/:userID/catalog" exact render={({ match }) => <Catalog match={match} state={state} makeRented={this.makeRented}/>} />
           <Route path="/movies/:movieID" exact render={({ match }) => <MovieDetail match={match} state={state}/>}/>
         </div>
       </Router>

@@ -5,7 +5,7 @@ import '../styles/movie.css'
 
 class Movie extends Component {
     makeRented = () => {
-        this.props.makeRented(this.props.movie)
+        this.props.makeRented(this.props.movie, this.props.userID)
     
     }
     render() {
