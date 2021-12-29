@@ -1,14 +1,31 @@
 .movie-container {
     display: inline-block;
+    position: relative;
+
   }
   
   .movie-img {
     height: 300px;
     width: 250px;
-    margin-left: 50px;
+    margin-left: 15px;
   }
   
   .movie-name {
     text-align: center;
     color: white;
+  }
+
+  button {
+  position: absolute;
+  top: 15px;
+  right: 54px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: #555;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  text-align: center;
   }

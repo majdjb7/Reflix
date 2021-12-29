@@ -1,0 +1,23 @@
+.movie-title {
+    text-align: center;
+    margin-top: 90px;
+    font-size: 40px;
+}
+
+.movie-year {
+    text-align: center;
+    font-size: 30px;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.movie-img {
+    margin-right: 60px;
+}
+
+.movie-desc {
+display: block;
+}

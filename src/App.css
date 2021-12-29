@@ -15,16 +15,22 @@ a{
 }
 
 #home-background{
-  background-image: url(https://www.phoneworld.com.pk/wp-content/uploads/2020/10/seo-watch-free-link-preview.jpg);
+  background-image: url(https://media.istockphoto.com/photos/abstract-red-and-black-are-light-pattern-with-the-gradient-is-the-picture-id1286371622?b=1&k=20&m=1286371622&s=170667a&w=0&h=ovc92w1lnD7X01kLMnd2HNVBecavgzyz-Mq1WvDLNhI=);
   height: 100%;
   width: 100%;
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-repeat: repeat-y;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.9;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+}
+
+*{
+  font-family: 'Aclonica';
+  color: white;
 }
