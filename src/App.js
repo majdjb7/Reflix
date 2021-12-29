@@ -39,6 +39,10 @@ class App extends Component {
     this.setState({ movies: newMovies })
   }
 
+  search = (input) => {
+    console.log(input)
+  }
+
 
   render() {
     const state = this.state
