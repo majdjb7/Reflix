@@ -4,7 +4,6 @@ import '../styles/landing.css'
 
 class Landing extends Component {
     render() {
-        console.log(this.props.state.users)
         let usersArray = this.props.state.users
         return (
             <div>

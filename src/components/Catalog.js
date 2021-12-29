@@ -1,17 +1,45 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Movie from './Movie'
 import '../styles/catalog.css'
 
 class Catalog extends Component {
+    constructor() {
+        super()
+        this.state = {
+            movieName: ""
+        }
+    }
 
     makeRented = (movie) => {
         this.props.makeRented(movie)
 
     }
 
+    searchMovie = () => {
+        alert(`Movie: ${this.state.movieName}`)
+    }
+
+    handleInputChange = event => {
+        const {value, name} = event.target;   
+        this.setState({[name]: value})
+    }
+
+    isMovieValid = () => {
+
+    }
+
+    filterMovies = (movies) => {
+        let searchResult = (this.state.movieName).toLowerCase()
+        let newMovies = movies.filter(m => (m.title).toLowerCase().includes(searchResult))
+        return newMovies
+    }
+
     render() {
-        const movies = this.props.state.movies
+        let movies = this.props.state.movies
+        if(this.state.movieName !== "") {
+            let newMovies = this.filterMovies(movies)
+            movies = newMovies
+        }
         let rentedMovies = movies.filter(m => m.isRented === true)
         let availableMovies = movies.filter(m => m.isRented === false)
         return (
@@ -30,7 +58,7 @@ class Catalog extends Component {
                 
                 
                 <div id="u-input">
-                    <input type="text" placeholder="Search" />
+                    <input type="text" name="movieName" placeholder="Search" onChange={this.handleInputChange}/>
                 </div>
 
                 <div className='movies-container'>

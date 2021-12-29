@@ -5,7 +5,6 @@ class MovieDetail extends Component {
     render() {
         let movieID = this.props.match.params.movieID
         let movie = this.props.state.movies[movieID]
-        console.log(movie);
         return (
             <div>
                 <div className='movie-title'>{movie.title}</div>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Home from './components/Home';
 import Landing from './components/Landing';
 import Catalog from './components/Catalog';
-import Movie from './components/Movie';
 import MovieDetail from './components/MovieDetail';
 
 
@@ -38,11 +37,6 @@ class App extends Component {
     newMovies[movie.id].isRented = rentStatus
     this.setState({ movies: newMovies })
   }
-
-  search = (input) => {
-    console.log(input)
-  }
-
 
   render() {
     const state = this.state
