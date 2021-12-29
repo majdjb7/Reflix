@@ -13,9 +13,9 @@ class App extends Component {
     this.state = {
       users: 
       [
-        {id: 0, name: "Majd1", budget: 14, img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"},
-        {id: 1, name: "Majd2", budget: 15, img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"},
-        {id: 2, name: "Majd3", budget: 11, img: "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg"},
+        {id: 0, name: "Majd1", budget: 16, img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"},
+        {id: 1, name: "Majd2", budget: 18, img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"},
+        {id: 2, name: "Majd3", budget: 14, img: "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg"},
         {id: 3, name: "Majd4", budget: 6, img: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png"}
 
       ],
@@ -25,7 +25,7 @@ class App extends Component {
         { id: 1, isRented: false, title: "The Lion King", img: "https://img00.deviantart.net/b782/i/2006/207/e/7/the_lion_king_front_cd_cover_by_peachpocket285.jpg", year: 1994, descrShort: "A young lion prince named Simba is born into wealth but raised into incredible misfortune. Trickster uncle, dying father, usurpation. Luckily, an unlikely meerkat-warthog pair take him in and teach him The Ways of the Bum Life. Be prepared for ghostly hallucinations, wild baboons, creepy crawlies." },
         { id: 2, isRented: false, title: "Beauty and the Beast", year: 1991, img: "https://images-na.ssl-images-amazon.com/images/I/81etFyb9N-L._SL1500_.jpg", descrShort: "A kickass woman named Belle who does not succumb to social norms gets crap from a bunch of village idiots, chief amongst them a total tool named Gaston. Belle shows everyone how great she is when she turns a beast (not Gaston) into a man. Love ensues, but then the villagers fall trap to severe group-think mentality led by the main tool himself." },
         { id: 3, isRented: false, title: "The Sword in the Stone", year: 1963, img: "https://www.disneyinfo.nl/images/laserdiscs/229-1-AS-front.jpg", descrShort: "Arthur is a young boy who just wants to be a knight's squire. Alas, he is dubbed 'Wart' early on, and it was all downhill from there for a while. On a hunting trip he falls in on Merlin, literally. Merlin is a possibly-mentally-unstable-and-ethically-dubious Wizard that turns Arthur into a literate, at-one-point harassed squirrel. Watch to find out what the heck that means." },
-        { id: 4, isRented: true, title: "Beauty and the Beast", year: 2016, img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation." }
+        { id: 4, isRented: false, title: "Beauty and the Beast", year: 2016, img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation." }
       ]
     }
   }
@@ -67,11 +67,12 @@ class App extends Component {
           <div id="home-background"></div>
           <div id="main-links">
             <Link className="link" to="/">Home</Link>
-            <Link className='link' to="/Catalog">Catalog</Link>
+            <Link className='link' to="/Majd1/Catalog">Catalog</Link>
           </div>
 
           <Route path="/" exact render={() => <Home />}></Route>
           <Route path="/" exact render={() => <Landing  state={state}/>} />
+          {/* <Route path="/catalog" exact render={() => <Catalog state={state} makeRented={this.makeRented}/>} /> */}
           <Route path="/:userID/catalog" exact render={({ match }) => <Catalog match={match} state={state} makeRented={this.makeRented}/>} />
           <Route path="/movies/:movieID" exact render={({ match }) => <MovieDetail match={match} state={state}/>}/>
         </div>
