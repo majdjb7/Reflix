@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Landing from './components/Landing';
 import Catalog from './components/Catalog';
 import Movie from './components/Movie';
+import MovieDetail from './components/MovieDetail';
 
 
 class App extends Component {
@@ -31,8 +32,11 @@ class App extends Component {
   }
 
   makeRented = (movie) => {
-    console.log(movie);
-    // this.props
+    let rentStatus
+    let newMovies = [...this.state.movies]
+    movie.isRented === true ? rentStatus = false : rentStatus = true
+    newMovies[movie.id].isRented = rentStatus
+    this.setState({ movies: newMovies })
   }
 
 
@@ -47,16 +51,11 @@ class App extends Component {
             <Link className="link" to="/">Home</Link>
             <Link className='link' to="/Catalog">Catalog</Link>
           </div>
-          <Routes>
-            <Route path="/" exact element={<Home />}></Route>
-            {/* <Route path="/" exact component={Home}/> */}
-            {/* <Route path="/about" exact render={() => <About items={Object.keys(state)} />} /> */}
 
-            <Route path="/landing" exact element={<Landing  state={state}/>} />
-            <Route path="/catalog" exact element={<Catalog state={state} makeRented={this.makeRented}/>} />
-            {/* <Route path="/movies/:movieID" exact render={({ match }) => <Movie match={match} state={state}/>}/> */}
-            <Route path="/movies/:movieID" exact element={<Movie state={state}/>}/>
-          </Routes>
+          <Route path="/" exact render={() => <Home />}></Route>
+          <Route path="/landing" exact render={() => <Landing  state={state}/>} />
+          <Route path="/catalog" exact render={() => <Catalog state={state} makeRented={this.makeRented}/>} />
+          <Route path="/movies/:movieID" exact render={({ match }) => <MovieDetail match={match} state={state}/>}/>
         </div>
       </Router>
       );

@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import '../styles/movie.css'
+
 
 class Movie extends Component {
+    makeRented = () => {
+        this.props.makeRented(this.props.movie)
+    
+    }
     render() {
-        // const { fentities, name } = this.props.match.params
-        console.log(this.props.match);
+        const movie = this.props.movie
+        let movieStatus = movie.isRented
         return (
             <div>
-                <button>Add</button>
-                <h1>Movie</h1>
+                {movieStatus === false ?
+                                <div className="movie-container">
+                                        <button onClick={this.makeRented}>+</button>
+                                        <Link to={`/movies/${movie.id}`}>
+                                            <img className='movie-img' src={movie.img} alt="" />
+                                        </Link>
+                                </div>
+                                : <div className="movie-container">
+                                    <button onClick={this.makeRented}>-</button>
+                                        <Link to={`/movies/${movie.id}`}>
+                                            <img className='movie-img' src={movie.img} alt="" />
+                                        </Link>
+                                </div>}
+                
 
             </div>
         )

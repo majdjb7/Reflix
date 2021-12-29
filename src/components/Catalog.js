@@ -21,16 +21,7 @@ class Catalog extends Component {
                     <div className='rented'>
                         <h1>Rented:</h1>
                         <div className='movies-container'>
-                            {rentedMovies.map(m => {
-                                return (
-                                        <div className="movie-container">
-                                            <button>-</button>
-                                                <Link to={`/movies/${m.id}`}>
-                                                    <img className='movie-img' src={m.img} alt="" />
-                                                </Link>
-                                            </div>
-                                )
-                            })
+                            {rentedMovies.map(m => { return (<Movie key={m.id} makeRented={this.makeRented} movie={m}/> ) })
                             }
                         </div>
                     </div>
@@ -43,17 +34,7 @@ class Catalog extends Component {
                 </div>
 
                 <div className='movies-container'>
-                    {availableMovies.map(m => {
-                        return (
-                                <div className="movie-container">
-                                    <button onClick={this.makeRented}>+</button>
-                                    <Link to={`/movies/${m.id}`}>
-                                        <img className='movie-img' src={m.img} alt="" />
-                                    </Link>
-                                    {/* <span>{}</span> */}
-                                </div>
-                        )
-                    })
+                    {availableMovies.map(m => { return (<Movie key={m.id} makeRented={this.makeRented} movie={m}/> )})
                     }
                 </div>
             </div>

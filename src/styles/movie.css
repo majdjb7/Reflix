@@ -1,0 +1,14 @@
+.movie-container {
+    display: inline-block;
+  }
+  
+  .movie-img {
+    height: 300px;
+    width: 250px;
+    margin-left: 50px;
+  }
+  
+  .movie-name {
+    text-align: center;
+    color: white;
+  }
